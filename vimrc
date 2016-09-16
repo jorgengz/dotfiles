@@ -43,7 +43,7 @@ filetype off
     " Plugin 'Syntastic'
     Plugin 'bling/vim-airline'
     " Plugin 'davidhalter/jedi-vim'
-    Plugin 'javacomplete'
+    " Plugin 'javacomplete'
     Plugin 'scrooloose/nerdtree'
     Plugin 'taglist.vim'
     Plugin 'tpope/vim-surround'
@@ -52,6 +52,7 @@ filetype off
     Plugin 'vim-latex/vim-latex'
     Plugin 'vim-ruby/vim-ruby'
     Plugin 'jaxbot/semantic-highlight.vim'
+    Plugin 'tomtom/tcomment_vim'
     Plugin 'epeli/slimux'
 
     " Web stuff:
@@ -59,6 +60,8 @@ filetype off
     Plugin 'sukima/xmledit'
     Plugin 'benjifisher/matchit.zip'
     Plugin 'valloric/MatchTagAlways'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'mxw/vim-jsx'
 
     " fishman/ctags not necessary with exuberant ctags:
     " $ brew install ctags
@@ -164,7 +167,7 @@ set diffopt+=vertical           " Gdiff splits vertically
 set noerrorbells                " noise sucks, but seems out of my control
 set expandtab                   " convert tabs to spaces
 set noexrc                      " use local version of .(g)vimrc, .exrc
-" set foldcolumn=4                " use a column (like nu) to indicate folds
+" set foldcolumn=4              " use a column (like nu) to indicate folds
 " set foldenable                  " enable folding
 " set foldlevel=100               " don't have anything folded at the beginning
 " set foldmethod=manual           " fold manually
@@ -232,6 +235,14 @@ autocmd FileType tex    set shiftwidth=2
 " Web Stuff:
 autocmd FileType html   set shiftwidth=2
 autocmd FileType erb    set shiftwidth=2
+autocmd FileType css    set shiftwidth=2
+autocmd FileType js     set shiftwidth=2
+autocmd FileType xhtml  set shiftwidth=2
+autocmd FileType xml    set shiftwidth=2
+
+autocmd FileType html   set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css    set omnifunc=csscomplete#CompleteCSS
+autocmd FileType js     set omnifunc=jscomplete#CompleteJS
 
 " OCaml:
 autocmd FileType ocaml  set shiftwidth=2
@@ -519,13 +530,6 @@ augroup vimrc_filetype
     autocmd FileType    python          map <F6> :w<CR>
     autocmd FileType    python          map <F7> <F1><CR>
     " autocmd FileType    python          nmap <S-F6> Go<CR><Esc>gI"""<CR>Runtime example:<CR><Esc>gI"""<Esc>O<Esc>:read !python %
-    " autocmd FileType    c,cpp           map <F5> :make<CR>
-
-    " For simple compiling when a makefile isn't feasible
-    " autocmd FileType    c               map <F6> :w<CR>:!echo -- Compiling %; gcc -o %< %<CR>
-    " autocmd FileType    cpp             map <F6> :w<CR>:!echo -- Compiling %; g++ -o %< %<CR>
-    " autocmd FileType    c,cpp           map <F7> <S-F7><CR>
-    " autocmd FileType    c,cpp           map <S-F7> :!echo -- Running %<; ./%<
 
 
     " Folding of JavaDoc:
@@ -548,7 +552,7 @@ augroup vimrc_filetype
     autocmd FileType    vim             set foldmethod=marker
     autocmd FileType    vim             set foldlevel=1
     " Java specific
-    autocmd FileType    java            imap {<CR> {<CR><CR>}<Esc>kcc
+    autocmd FileType    java,javascript imap {<CR> {<CR><CR>}<Esc>kcc
     " }
     autocmd FileType    java            imap <leader>m class  <Esc>maa{<CR>public static void main(String[] args) {<CR><Esc>`ai
     " }}
@@ -652,12 +656,10 @@ endif
 set t_Co=256                " use 256 colors
 set background=dark
 
-" Set colorscheme:
+" Set colorscheme: Available from dotfiles
 if has("gui_running")
-    " Colorscheme tango2 is available from http://folk.uio.no/larsstor/tango2.vim
     colorscheme tango2
 else
-    " Colorscheme monlokai should be in my dotfiles...
     colorscheme monlokai
 endif
 
