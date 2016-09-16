@@ -1,0 +1,29 @@
+PS1='\[\e[0;31m\]\d\[\e[m\] \[\e[0;33m\]~\W \[\e[m\]\[\e[0;32m\]\A\[\e[m\]\[\e[0;31m\] \$\[\e[m\] '
+# dimefox style: PS1='\[\e[0;37m\]\u\[\e[0;31m\]@\[\e[0;37m\]\h\[\e[0;31m\]/\[\e[0;37m\]\W \[\e[0;31m\]\$ \[\e[m\]'
+
+# export OCAMLRUNPARAM=p
+
+export CLICOLOR=1
+
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# export LC_CTYPE=en_GB.UTF8
+
+export PYTHONIOENCODING=UTF-8
+
+LS_COLOR=1
+
+alias tree='tree -C'
+alias timer='timer.py'
+
+# Use the exuberant ctags version:
+alias ctags='/usr/local/bin/ctags'
+
+PYTHONPATH="/Users/jorgen/progging/python"
+
+export PYTHONPATH
+
+# Use MacVim bundled version for copy-paste to and from terminal
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+export PATH="$PATH:$HOME/.rvm/bin:/Applications/SWI-Prolog.app/Contents/MacOS" # Add RVM to PATH for scripting

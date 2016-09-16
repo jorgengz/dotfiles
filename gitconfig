@@ -1,0 +1,37 @@
+[user]
+        name = Jørgen Granseth
+        email = 
+[merge]
+        tool = vimdiff
+[push]
+        default = simple
+[credential]
+        helper = osxkeychain
+[core]
+        editor = vim
+[color]
+        ui = true
+        branch = true
+[color "branch"]
+        current = green
+        local = dim cyan
+        remote = dim red
+[color "decorate"]
+        branch = green
+        head = cyan
+        remote = dim red
+        tag = magenta
+[color "status"]
+        added = green
+        changed = red
+        untracked = dim cyan
+[alias]
+        lol = log --oneline --graph --decorate --format=format:'%C(yellow)%h:%C(reset)%C(auto)%d%C(reset) %C(white)%an: %s%C(reset)'
+        lolz = log --oneline --graph --decorate --format=format:'%C(yellow)%h: %C(reset)%C(green)(%ar)%C(reset)%C(dim cyan) -%C(reset)%C(auto)%d%C(reset) %C(white)%an: %C(reset)%C(white) %s%C(reset)%n''        %C(dim white)`->  %C(reset)%C(red)%ad%C(reset)' --date=rfc
+        rofl = log --oneline --graph --decorate --format=format:'%C(yellow)%h:%C(reset)%C(auto)%d%C(reset) %C(white)%an: %s%C(reset)' --all
+        roflcopter = log --oneline --graph --decorate --format=format:'%C(yellow)%h: %C(reset)%C(green)(%ar)%C(reset)%C(dim cyan) -%C(reset)%C(auto)%d%C(reset) %C(white)%an: %s%C(reset)%n''        %C(dim white)`->  %C(reset)%C(red)%ad%C(reset) ' --all --date=rfc
+
+[core]
+        excludesfile = ~/.global_gitignore
+[diff]
+        tool = vimdiff
