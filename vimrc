@@ -7,7 +7,6 @@
 " want to use this for e.g. gvim on Windows, you'll have to make them Windows-y
 " first.
 
-
 " Settings: {{
 " ------------
 
@@ -40,7 +39,7 @@ filetype off
     Plugin 'FuzzyFinder'
     Plugin 'L9'
     Plugin 'Lokaltog/vim-easymotion'
-    " Plugin 'Syntastic'
+    Plugin 'Syntastic'
     Plugin 'bling/vim-airline'
     " Plugin 'davidhalter/jedi-vim'
     " Plugin 'javacomplete'
@@ -80,15 +79,15 @@ endif
 " }}
 
 " Syntastic can get annoying.. sooo for now it's disabled
-" let g:syntastic_aggregate_errors = 1        " Find all errors
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_loc_list_height = 5         " Don't take up half the screen..
-" let g:syntastic_python_checkers = 'pyflakes'
-" let g:syntastic_java_checkers = ['javac', 'checkstyle']
+let g:syntastic_aggregate_errors = 1        " Find all errors
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5         " Don't take up half the screen..
+let g:syntastic_python_checkers = 'pyflakes'
+let g:syntastic_java_checkers = ['javac', 'checkstyle']
 
-" let g:syntastic_mode_map = { 'mode': 'active',
-"             \ 'active_filetypes': [],
-"             \ 'passive_filetypes': ['java', 'tex'] }
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['java', 'tex'] }
 
 " Taglist settings:
 "
@@ -109,24 +108,23 @@ let g:jedi#popup_on_dot = 0
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_alt_sep = '' "'»'
-let g:airline_left_sep = '' "'▶'
-let g:airline_right_alt_sep = '' "'«'
-let g:airline_right_sep = '' "'◀'
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
 " let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.space = "\ua0"
 
-" let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
 let g:airline_theme='lucius'
 " Only show syntastic warning, not whitespace:
-" let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#syntastic#get_warnings(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#syntastic#get_warnings(),0)}'
 
 
 
@@ -574,29 +572,29 @@ augroup vimrc_filetype
     autocmd FileType    minizinc        imap (<CR> (<CR><CR>);<Esc><<kcc
 
     " Slimux For IPython:
-    autocmd FileType    python,ocaml    nnoremap <leader>c :SlimuxGlobalConfigure<CR>
+    autocmd FileType    python,ocaml    nnoremap <silent> <leader>c :SlimuxGlobalConfigure<CR>
 
-    autocmd FileType    python          nnoremap <leader>q :SlimuxSendKeys quit Enter<CR>
-    autocmd FileType    python          inoremap <leader>q <Esc>ma:SlimuxSendKeys quit Enter<CR>`aa
-    autocmd FileType    python          nnoremap <leader>e :SlimuxSendKeys ipython Enter<CR>
-    autocmd FileType    python          inoremap <leader>e <Esc>ma:SlimuxSendKeys ipython Enter<CR>`aa
+    autocmd FileType    python          nnoremap <silent> <leader>q :SlimuxSendKeys quit Enter<CR>
+    autocmd FileType    python          inoremap <silent> <leader>q <Esc>ma:SlimuxSendKeys quit Enter<CR>`aa
+    autocmd FileType    python          nnoremap <silent> <leader>e :SlimuxSendKeys ipython Enter<CR>
+    autocmd FileType    python          inoremap <silent> <leader>e <Esc>ma:SlimuxSendKeys ipython Enter<CR>`aa
 
-    autocmd FileType    ocaml           nnoremap <leader>q :SlimuxSendKeys C-D<CR>
-    autocmd FileType    ocaml           inoremap <leader>q <Esc>ma:SlimuxSendKeys C-D<CR>`aa
-    autocmd FileType    ocaml           nnoremap <leader>e :SlimuxSendKeys ocaml Enter<CR>
-    autocmd FileType    ocaml           inoremap <leader>e <Esc>ma:SlimuxSendKeys ocaml Enter<CR>`aa
+    autocmd FileType    ocaml           nnoremap <silent> <leader>q :SlimuxSendKeys C-D<CR>
+    autocmd FileType    ocaml           inoremap <silent> <leader>q <Esc>ma:SlimuxSendKeys C-D<CR>`aa
+    autocmd FileType    ocaml           nnoremap <silent> <leader>e :SlimuxSendKeys ocaml Enter<CR>
+    autocmd FileType    ocaml           inoremap <silent> <leader>e <Esc>ma:SlimuxSendKeys ocaml Enter<CR>`aa
     " Send current line
-    autocmd FileType    python,ocaml    nnoremap <leader>l ma:SlimuxREPLSendLine<CR>`a
-    autocmd FileType    python,ocaml    inoremap <leader>l <Esc>ma:SlimuxREPLSendLine<CR>`aa
+    autocmd FileType    python,ocaml    nnoremap <silent> <leader>l ma:SlimuxREPLSendLine<CR>`a
+    autocmd FileType    python,ocaml    inoremap <silent> <leader>l <Esc>ma:SlimuxREPLSendLine<CR>`aa
 
     " Send current selection:
-    autocmd FileType    python          vnoremap <leader>l y:SlimuxSendKeys %paste Enter<CR>
-    autocmd FileType    ocaml           vnoremap <leader>l y:SlimuxREPLSendSelection<CR>
+    autocmd FileType    python          vnoremap <silent> <leader>l y:SlimuxSendKeys %paste Enter<CR>
+    autocmd FileType    ocaml           vnoremap <silent> <leader>l y:SlimuxREPLSendSelection<CR>
 
-    autocmd FileType    python,ocaml    nnoremap <leader>o :SlimuxSendKeys C-C<CR>
+    autocmd FileType    python,ocaml    nnoremap <silent> <leader>o :SlimuxSendKeys C-C<CR>
 
-    autocmd FileType    python,ocaml    nnoremap <leader>i :SlimuxSendKeys C-L<CR>
-    autocmd FileType    python,ocaml    inoremap <leader>i <Esc>ma:SlimuxSendKeys C-L<CR>`aa
+    autocmd FileType    python,ocaml    nnoremap <silent> <leader>i :SlimuxSendKeys C-L<CR>
+    autocmd FileType    python,ocaml    inoremap <silent> <leader>i <Esc>ma:SlimuxSendKeys C-L<CR>`aa
 
     " Make text files text friendly with wrapped lines.
     " Remember gq (visual) and gqap (normal) to easily reformat.
