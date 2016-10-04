@@ -64,3 +64,16 @@ for f in files:
     os.symlink(dotfile_path, utility_path)
     print "Linked '{}' to '{}'\n".format(utility_path, dotfile_path)
 
+# Initialise .personal.sh if it doesn't exist:
+mvim_vim_str = """
+# Use MacVim bundled version for copy-paste to and from terminal
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias v='vim'
+"""
+
+personal_sh = "{}/.personal.sh".format(HOME)
+if not os.path.exists(personal_sh):
+    open(personal_sh, "w") as p_sh:
+        p_sh.write("alias ds='cd {}'\n".format(DOTFILES))
+        p_sh.write("alias dotfiles='cd {}'\n".format(DOTFILES))
+        p_sh.write(mvim_vim_str)
