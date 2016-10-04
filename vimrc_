@@ -41,7 +41,6 @@ filetype off
     Plugin 'Lokaltog/vim-easymotion'
     Plugin 'Syntastic'
     Plugin 'bling/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
     " Plugin 'davidhalter/jedi-vim'
     " Plugin 'javacomplete'
     Plugin 'scrooloose/nerdtree'
