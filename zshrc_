@@ -76,28 +76,6 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa.pub"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
-alias dotfiles='cd ~/progging/dotfiles'
-alias ds='cd ~/progging/dotfiles'
-alias tree='tree -C'
-alias timer='timer.py'
-
-# Use the exuberant ctags version:
-alias ctags='/usr/local/bin/ctags'
-
-# Use MacVim bundled version for copy-paste to and from terminal
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-
-alias j='autojump'
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-alias v='vim'
-
 # dimefox style: PS1='\[\e[0;37m\]\u\[\e[0;31m\]@\[\e[0;37m\]\h\[\e[0;31m\]/\[\e[0;37m\]\W \[\e[0;31m\]\$ \[\e[m\]'
 # export OCAMLRUNPARAM=p
 
@@ -110,16 +88,9 @@ export PYTHONIOENCODING=UTF-8
 
 # LS_COLOR=1
 
+source .personal.sh
 
-PYTHONPATH="/Users/jorgen/progging/python"
-export PYTHONPATH
+alias j='autojump'
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-export PATH="$PATH:$HOME/.rvm/bin:/Applications/SWI-Prolog.app/Contents/MacOS" # Add RVM to PATH for scripting
-
-# Ensure user-installed binaries take precedence:
-PATH="$PATH:$HOME/.rvm/bin"                                     # Ruby version manager
-PATH="$PATH:/Applications/SWI-Prolog.app/Contents/MacOS"        # Prolog
-PATH="$PATH:/Applications/MiniZincIDE.app/Contents/Resources/"  # MiniZinc
-PATH="$PATH:/Users/jorgen/anaconda/bin"                         # Conda Python
-PATH="$PATH:/usr/local/bin"                                     # My stuff
-export PATH
+alias v='vim'
