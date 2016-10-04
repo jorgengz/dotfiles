@@ -4,14 +4,30 @@ appended underscore.
 
 E.g. zshrc_ will be symlinked from ~/.zshrc
 """
-import datetime
 import os
+import sys
 import shutil
+import subprocess
 
+import datetime
 
 BACKUP = "backup"
 HOME = os.path.expanduser("~")
 DOTFILES = os.path.realpath(".")
+
+omzsh = "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+
+if not os.path.exists("{}/.oh-my-zsh".format(HOME)):
+    try:
+        curl_cmd = 'sh -c "$(curl -fsSL {}"'.format(omzsh)
+        subprocess.call(curl_cmd)
+    except:
+        try:
+            wget_cmd = 'sh -c "$(wget {} -O -)"'.format(omzsh)
+            subprocess.call(wget_cmd)
+        except:
+            print "Failed to install oh-my-zsh with curl and wget"
+            sys.exit(1)
 
 files = os.listdir(".")
 
