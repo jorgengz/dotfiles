@@ -231,6 +231,7 @@ autocmd FileType tex    set shiftwidth=2
 
 
 " Web Stuff:
+let g:xmledit_enable_html=1
 autocmd FileType html   set shiftwidth=2
 autocmd FileType erb    set shiftwidth=2
 autocmd FileType css    set shiftwidth=2
