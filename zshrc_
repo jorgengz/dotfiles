@@ -82,7 +82,8 @@ export SSH_KEY_PATH="~/.ssh/id_rsa.pub"
 # For a full list of active aliases, run `alias`.
 #
 
-alias dotfiles='cd progging/dotfiles'
+alias dotfiles='cd ~/progging/dotfiles'
+alias ds='cd ~/progging/dotfiles'
 alias tree='tree -C'
 alias timer='timer.py'
 
@@ -92,6 +93,10 @@ alias ctags='/usr/local/bin/ctags'
 # Use MacVim bundled version for copy-paste to and from terminal
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
+alias j='autojump'
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+alias v='vim'
 
 # dimefox style: PS1='\[\e[0;37m\]\u\[\e[0;31m\]@\[\e[0;37m\]\h\[\e[0;31m\]/\[\e[0;37m\]\W \[\e[0;31m\]\$ \[\e[m\]'
 # export OCAMLRUNPARAM=p
