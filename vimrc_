@@ -41,6 +41,7 @@ filetype off
     Plugin 'Lokaltog/vim-easymotion'
     Plugin 'Syntastic'
     Plugin 'bling/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
     " Plugin 'davidhalter/jedi-vim'
     " Plugin 'javacomplete'
     Plugin 'scrooloose/nerdtree'
@@ -121,9 +122,10 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.space = "\ua0"
 
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme='lucius'
+let g:airline_theme = 'dark'
+
 " Only show syntastic warning, not whitespace:
+let g:airline#extensions#syntastic#enabled = 1
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#syntastic#get_warnings(),0)}'
 
 
