@@ -114,3 +114,11 @@ alias v='vim'
 
 # Git aliases:
 alias gau='git add -u'
+alias gds='git diff --staged'
+alias gr='git rofl'
+alias gbdm='git branch --merged | egrep -v '\''(^\*|master|utv|testprod|prod)'\'' | xargs git branch -d'
+alias gdh='git diff HEAD^ HEAD'
+alias mci='mvn clean install'
+
+# Use the exuberant ctags version:
+alias ctags='/usr/local/bin/ctags'
