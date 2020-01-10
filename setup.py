@@ -64,6 +64,14 @@ for f in files:
     os.symlink(dotfile_path, utility_path)
     print "Linked '{}' to '{}'\n".format(utility_path, dotfile_path)
 
+# Symlink zsh theme:
+ZSH_THEME = "jorgen.zsh-theme"
+print "Symlinking {}".format(ZSH_THEME)
+os.symlink(
+    "{}/{}".format(DOTFILES, ZSH_THEME),
+    "{}/.oh-my-zsh/themes/{}".format(HOME, ZSH_THEME)
+)
+
 # Initialise .personal.sh if it doesn't exist:
 mvim_vim_str = """
 # Use MacVim bundled version for copy-paste to and from terminal
