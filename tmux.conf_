@@ -1,3 +1,4 @@
 setw -g mode-keys vi
 setw -g xterm-keys on
-set-option -g default-shell /usr/local/bin/zsh
+
+set -g default-command 'reattach-to-user-namespace $SHELL --login'

@@ -25,5 +25,8 @@ export PYTHONPATH
 
 # Use MacVim bundled version for copy-paste to and from terminal
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias mci='mvn clean install'
 
 export PATH="$PATH:$HOME/.rvm/bin:/Applications/SWI-Prolog.app/Contents/MacOS" # Add RVM to PATH for scripting
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
