@@ -1,0 +1,18 @@
+set surround
+set commentary
+" set multicursor
+set ideajoin
+set ideamarks
+
+set incsearch
+set hlsearch
+set showmode
+set clipboard+=unnamed
+
+set scrolloff=5
+set sidescrolloff=5
+
+inoremap jj <Esc>
+
+nnoremap * *``
+nnoremap # #``
