@@ -35,17 +35,8 @@ Plug 'vim-scripts/taglist.vim'
 " Tooling:
 Plug 'ElmCast/elm-vim'                  " Elm support
 Plug 'sheerun/vim-polyglot'             " Syntax etc for everything
-Plug 'SirVer/ultisnips'                 " Snippets engine
 Plug 'honza/vim-snippets'               " Omnilang Snippet templates
 Plug 'ervandew/supertab'
-
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer --tern-completer
-  endif
-endfunction
-" Disable for pluralsight
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf',        { 'dir': '~/.fzf', 'do': './install --all' }
@@ -57,13 +48,6 @@ Plug 'Raimondi/delimitMate'             " Autoclose brackets
 Plug 'airblade/vim-gitgutter', { 'on': [] } " Git diff in gutter
 Plug 'junegunn/goyo.vim'
 Plug 'AndrewRadev/splitjoin.vim'        " Splitting/joining blocks of code
-Plug 'terryma/vim-multiple-cursors'
-let g:multi_cursor_start_key='<C-m>'
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -75,7 +59,7 @@ Plug 'tpope/vim-fugitive'               " Git plugin
 Plug 'vim-latex/vim-latex'
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'tomtom/tcomment_vim'              " Comment anything with 'gcc'
-" Plug 'epeli/slimux'                     " Tmux integration
+" Plug 'epeli/slimux'                   " Tmux integration
 Plug 'jpalardy/vim-slime'
 
 " Web stuff:
@@ -115,16 +99,6 @@ let g:ycm_semantic_triggers = {
      \ 'elm' : ['.'],
      \}
 
-
-" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
-" (via http://stackoverflow.com/a/22253548/1626737)let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
-let g:UltiSnipsExpandTrigger           = '<tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
-let g:UltiSnipsSnippetsDir             = '~/.vim/UltiSnips'
-let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 " Ale:
 " ===
