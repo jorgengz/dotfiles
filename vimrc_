@@ -145,8 +145,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.space = "\ua0"
 let g:airline_symbols.error = "err"
 
-let g:airline_theme = 'dark'
-
 
 " -----------------------------------------------------------------------------
 
