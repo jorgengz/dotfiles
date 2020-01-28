@@ -72,16 +72,8 @@ os.symlink(
     "{}/.oh-my-zsh/themes/{}".format(HOME, ZSH_THEME)
 )
 
-# Initialise .personal.sh if it doesn't exist:
-mvim_vim_str = """
-# Use MacVim bundled version for copy-paste to and from terminal
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-alias v='vim'
-"""
-
 personal_sh = "{}/.personal.sh".format(HOME)
 if not os.path.exists(personal_sh):
     with open(personal_sh, "w") as p_sh:
         p_sh.write("alias ds='cd {}'\n".format(DOTFILES))
         p_sh.write("alias dotfiles='cd {}'\n".format(DOTFILES))
-        p_sh.write(mvim_vim_str)
